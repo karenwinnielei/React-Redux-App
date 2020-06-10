@@ -11,7 +11,13 @@ const CovidList = (props) => {
       ) : (
         props.countries.map((country) => (
           <div>
-            {country.Country}:{country.TotalConfirmed}
+            <h3>Country: {country.Country}</h3>
+            <p>New Confirmed Cases: {country.NewConfirmed}</p>
+            <p>Total Confirmed Cases: {country.TotalConfirmed}</p>
+            <p>New Deaths: {country.NewDeaths}</p>
+            <p>Total Deaths: {country.TotalDeaths}</p>
+            <p>New Recovered: {country.NewRecovered}</p>
+            <p>Total Recovered: {country.TotalRecovered}</p>
           </div>
         ))
       )}
