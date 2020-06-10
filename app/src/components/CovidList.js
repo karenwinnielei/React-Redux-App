@@ -4,6 +4,16 @@ import { connect } from "react-redux";
 const CovidList = (props) => {
   console.log(props.countries);
 
+  const handleGetCountry = (e) => {
+    e.preventDefault();
+    const show = document.querySelector(".toggleDisplay");
+    if (show.style.display === "none") {
+      show.style.display = "block";
+    } else {
+      show.style.display = "none";
+    }
+  };
+
   return (
     <>
       {props.error ? (
@@ -11,13 +21,15 @@ const CovidList = (props) => {
       ) : (
         props.countries.map((country) => (
           <div>
-            <h3>Country: {country.Country}</h3>
-            <p>New Confirmed Cases: {country.NewConfirmed}</p>
-            <p>Total Confirmed Cases: {country.TotalConfirmed}</p>
-            <p>New Deaths: {country.NewDeaths}</p>
-            <p>Total Deaths: {country.TotalDeaths}</p>
-            <p>New Recovered: {country.NewRecovered}</p>
-            <p>Total Recovered: {country.TotalRecovered}</p>
+            <h3 onClick={handleGetCountry}>Country: {country.Country}</h3>
+            <div className="toggleDisplay">
+              <p>New Confirmed Cases: {country.NewConfirmed}</p>
+              <p>Total Confirmed Cases: {country.TotalConfirmed}</p>
+              <p>New Deaths: {country.NewDeaths}</p>
+              <p>Total Deaths: {country.TotalDeaths}</p>
+              <p>New Recovered: {country.NewRecovered}</p>
+              <p>Total Recovered: {country.TotalRecovered}</p>
+            </div>
           </div>
         ))
       )}

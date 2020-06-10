@@ -14,7 +14,7 @@ const CovidForm = (props) => {
       {props.isFetchingData ? (
         <div>**we are fetching data**</div>
       ) : (
-        <button onClick={handleGetData}>get data</button>
+        <button onClick={handleGetData}>get data by country</button>
       )}
     </>
   );
